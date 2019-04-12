@@ -39,4 +39,4 @@ Missing data:
 
 And random noise:
 
-![Spec4](images/Spec4.png)
+![Spec4](images/spec4.png)
