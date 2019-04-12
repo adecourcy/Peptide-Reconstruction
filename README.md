@@ -18,3 +18,8 @@ Finally, the "analysis" folder contains a set of tools for analyzing the output 
 The goal of this program is to discover new peptides. In this case, a peptide is a short protien, made up of a linear chain of amino acids. We are generally dealing with 20 amino acids. Each can be represented by a single letter and a mass:
 
 ![AminoAcids](images/AminoAcid.png)
+
+Let's say we have a peptide, and went want to know its structure (i.e. what amino acids it is made of). Unfortunately, we can't observe this directly. But what we can do is break the peptide into many pieces, observe the mass of each piece, and try to reconstruct the peptide from those masses. That's essentially where mass spectrometry comes into play.
+
+Let's say we have a peptide, LAQPK, and we put it into a mass spectrometer (we'll actually be putting multiple copies of the same peptide into the spectrometer). What we get out of the other end is a set of masses the instrument observed, and intensity of the mass (roughly how sure the instrument is that this is a "correct" mass rather than noise, but that is actually an very in accurate statment). The set of mass correspond to "fragments" of the peptide:
+
