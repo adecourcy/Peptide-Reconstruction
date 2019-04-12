@@ -27,11 +27,11 @@ Let's say we have a peptide, LAQPK, and we put it into a mass spectrometer (we'l
 
 Which might generate a spectrum like this:
 
-![Spec1](images/Spec1.png)
+![Spec1](images/Spec-1.png)
 
 However, there are many problems to content with, such inaccurate measurements:
 
-![Spec2](images/Spec2.png)
+![Spec2](images/Spec-2.png)
 
 Missing data:
 
