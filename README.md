@@ -17,4 +17,4 @@ Finally, the "analysis" folder contains a set of tools for analyzing the output 
 
 The goal of this program is to discover new peptides. In this case, a peptide is a short protien, made up of a linear chain of amino acids. We are generally dealing with 20 amino acids. Each can be represented by a single letter and a mass:
 
-[[https://github.com/adecourc/adecourcy/Peptide-Reconstruction/images/AminoAcids.png|alt=octocat]]
+![AminoAcids](https://github.com/adecourc/adecourcy/Peptide-Reconstruction/images/AminoAcids.png)
