@@ -23,3 +23,4 @@ Let's say we have a peptide, and went want to know its structure (i.e. what amin
 
 Let's say we have a peptide, LAQPK, and we put it into a mass spectrometer (we'll actually be putting multiple copies of the same peptide into the spectrometer). What we get out of the other end is a set of masses the instrument observed, and intensity of the mass (roughly how sure the instrument is that this is a "correct" mass rather than noise, but that is actually an very in accurate statment). The set of mass correspond to "fragments" of the peptide:
 
+![MassFrags](images/MassFragments.png)
