@@ -1,0 +1,1416 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include "includes.h"
+#include "inputFunctions.h"
+
+int main()
+{
+  
+  Node node1 = createNode(12);
+  Node node2 = createNode(12);
+  //node2.mass = 10;
+  Node node3 = createNode(12);
+  node3.adjustedScore = 10;
+
+  Node node4 = createNode(12);
+  //node4.mass = 10;
+  Node node5 = createNode(12);
+  //node5.mass = 30;
+  Node node6 = createNode(12);
+  //node6.mass = 20;
+  Node node7 = createNode(12);
+  //node7.mass = 0;
+  Node node8 = createNode(12);
+  //node8.mass = 20;
+  node8.adjustedScore = 10;
+
+  Node node9 = createNode(12);
+  //node9.mass = 15;
+  Node node10 = createNode(12);
+  //node10.mass = 12;
+  Node node11 = createNode(12);
+  //node11.mass = 17;
+  
+  // printNode(node);
+
+  //Head head = newHead();
+  /*
+  if (head.next == NULL) {
+    printf("pass head null\n");
+  } else {
+    printf("fail head null\n");
+  }
+  */
+
+  //head.next = addLink(&head, node);
+  //printf("%d\n", head.size);
+  /*
+  if (head.next != NULL) {
+    printf("pass head list\n");
+  } else {
+    printf("fail head list\n");
+  }
+  */
+
+  //head.next = addLink(&head, node2);
+  //printf("%d\n", head.size);
+
+  //if (head.next->next == NULL) {
+    //printf("NULL\n");
+  //}
+  //printNode(head.next->next->node);
+  //printList(head.next);
+  /*
+  removeLowest(&head);
+  printList(head.next);
+  printf("----------------\n");
+  removeLowest(&head);
+  printList(head.next);
+  printf("----------------\n");
+  removeLowest(&head);
+  printList(head.next);
+  printf("----------------\n");
+  printf("%d\n", head.size);
+  */
+
+  /*
+  addLink(&head, node);
+  addLink(&head, node3);
+  addLink(&head, node2);
+
+  printf("\n");
+  printList(head.next);
+  printf("%d\n", head.size);
+  printf("----------------\n");
+  removeLowest(&head);
+  printList(head.next);
+  printf("%d\n", head.size);
+  printf("----------------\n");
+  removeLowest(&head);
+  printList(head.next);
+  printf("%d\n", head.size);
+  printf("----------------\n");
+  removeLowest(&head);
+  printList(head.next);
+  printf("%d\n", head.size);
+  printf("----------------\n");
+  */
+
+  /*
+  addLink(&head, node4);
+  addLink(&head, node5);
+  */
+  //addLink(&head, node6);
+  // addLink(&head, node7);
+  /*
+  addLink(&head, node8);
+  printList(head.next);
+  */
+  /*
+  ViablePeptides viablePeptides = createViablePeptides(50, 7, 9, 3, 1);
+  addToMiscleavageBin(&viablePeptides, node, 1);
+  addToMiscleavageBin(&viablePeptides, node2, 1);
+  addToMiscleavageBin(&viablePeptides, node3, 1);
+  addToMiscleavageBin(&viablePeptides, node9, 1);
+  addToMiscleavageBin(&viablePeptides, node10, 1);
+  addToMiscleavageBin(&viablePeptides, node11, 1);
+  printViablePeptides(viablePeptides, 0);
+  */
+
+  /*
+  Node node12 = copyNode(node11);
+  printNode(node11);
+  printNode(node12);
+
+  addAmino(node11, "A");
+  addAmino(node11, "B");
+  addAmino(node12, "Z");
+  addAmino(node12, "Y");
+  printNode(node11);
+  printNode(node12);
+  */
+
+  /*
+  char* test = "AGCW";
+  for (int i = 0; i < 4; i++) {
+    printf("%d\n", getHash(test[i]));
+  }
+  */
+
+  /*
+  float massToleranceResult = 0.0;
+  int precision = 1;
+
+  SpectrumHash table = newSpectrumTable(4);
+  addSpectrumNode(40000, 1, &table, precision);
+  addSpectrumNode(50000, 2, &table, precision);
+  addSpectrumNode(60000, 3, &table, precision);
+  addSpectrumNode(70000, 4, &table, precision);
+  //printSpectrumTable(&table);
+  addSpectrumNode(80000, 5, &table, precision);
+  addSpectrumNode(90000, 6, &table, precision);
+  addSpectrumNode(100000, 7, &table, precision);
+  addSpectrumNode(110000, 8, &table, precision);
+  //printf("\n\n\n");
+  printSpectrumTable(&table);
+  //destroySpectrumHashTable(&table);
+  SpectrumNode newSpectrumNode;
+  long mass;
+  long long score;
+
+  newSpectrumNode = lookupMass(40002,
+                               precision,
+                               table,
+                               30.0,
+                               &massToleranceResult);
+  mass = returnSpectrumMass(newSpectrumNode);
+  score = returnSpectrumScore(newSpectrumNode);
+  printf("Mass: %ld, Score: %lld\n", mass, score);
+  printf("Mass tolerance result: %f\n", massToleranceResult);
+
+  newSpectrumNode = lookupMass(50000,
+                               precision,
+                               table,
+                               30.0,
+                               &massToleranceResult);
+  mass = returnSpectrumMass(newSpectrumNode);
+  score = returnSpectrumScore(newSpectrumNode);
+  printf("Mass: %ld, Score: %lld\n", mass, score);
+  printf("Mass tolerance result: %f\n", massToleranceResult);
+
+  newSpectrumNode = lookupMass(80000,
+                               precision,
+                               table,
+                               30.0,
+                               &massToleranceResult);
+  mass = returnSpectrumMass(newSpectrumNode);
+  score = returnSpectrumScore(newSpectrumNode);
+  printf("Mass: %ld, Score: %lld\n", mass, score);
+  printf("Mass tolerance result: %f\n", massToleranceResult);
+
+  newSpectrumNode = lookupMass(80002,
+                               precision,
+                               table,
+                               30.0,
+                               &massToleranceResult);
+  mass = returnSpectrumMass(newSpectrumNode);
+  score = returnSpectrumScore(newSpectrumNode);
+  printf("Mass: %ld, Score: %lld\n", mass, score);
+  printf("Mass tolerance result: %f\n", massToleranceResult);
+
+  newSpectrumNode = lookupMass(30000,
+                               precision,
+                               table,
+                               30.0,
+                               &massToleranceResult);
+  mass = returnSpectrumMass(newSpectrumNode);
+  score = returnSpectrumScore(newSpectrumNode);
+  printf("Mass: %ld, Score: %lld\n", mass, score);
+  printf("Mass tolerance result: %f\n", massToleranceResult);
+
+  SpectrumHash table2 = newSpectrumTable(4);
+  addSpectrumNode(40, 1, &table, precision);
+
+  newSpectrumNode = lookupMass(50000,
+                               precision,
+                               table2,
+                               30.0,
+                               &massToleranceResult);
+  mass = returnSpectrumMass(newSpectrumNode);
+  score = returnSpectrumScore(newSpectrumNode);
+  printf("Mass: %ld, Score: %lld\n", mass, score);
+  printf("Mass tolerance result: %f\n", massToleranceResult);
+
+  destroySpectrumHashTable(&table);
+  */
+  
+
+  /*
+  RejectedDatabase rd = createRejectedDatabase(9);
+
+  node.pepLength = 1;
+  node3.pepLength = 1;
+  node5.pepLength = 1;
+
+  node.peptideString = "1";
+  node3.peptideString = "3";
+  node5.peptideString = "5";
+
+  addToRejectedDatabase(&rd, node, 3, 0);
+  addToRejectedDatabase(&rd, node3, 3, 0);
+  addToRejectedDatabase(&rd, node5, 3, 0);
+
+  node.pepLength = 2;
+  node3.pepLength = 2;
+  node5.pepLength = 3;
+
+  addToRejectedDatabase(&rd, node, 3, 0);
+  addToRejectedDatabase(&rd, node3, 3, 0);
+  addToRejectedDatabase(&rd, node5, 3, 0);
+  int bin = rd.array[0]->binNumber;
+  int charge = rd.array[0]->charge;
+  printf("%d %d\n", bin, charge);
+
+
+
+  printRejectedDatabase(rd);
+
+  destroyRejectedDatabase(rd);
+  */
+
+  /*
+  RejectedDatabase rd = createRejectedDatabase(9);
+  Head head = newHead();
+
+  strcat(node.peptideString, "1");
+  strcat(node2.peptideString, "2");
+  strcat(node3.peptideString, "3");
+  strcat(node4.peptideString, "4");
+  strcat(node5.peptideString, "5");
+  node.pepLength = 1;
+  node2.pepLength = 1;
+  node3.pepLength = 1;
+  node4.pepLength = 1;
+  node5.pepLength = 1;
+  node.adjustedScore = -1;
+  node5.adjustedScore = -1;
+
+  node.mass = 0;
+  node2.mass = 10;
+  node3.mass = 20;
+  node4.mass = 30;
+  node5.mass = 40;
+
+  addToSpectrumBinHelper(&head, &rd, node, 0, 1, 3);
+  addToSpectrumBinHelper(&head, &rd, node2, 0, 1, 3);
+  addToSpectrumBinHelper(&head, &rd, node3, 0, 1, 3);
+  addToSpectrumBinHelper(&head, &rd, node4, 0, 1, 3);
+  addToSpectrumBinHelper(&head, &rd, node5, 0, 1, 3);
+
+  printf("list:\n");
+  printList(head.next);
+  printf("\nrejected peptides:\n");
+  printRejectedDatabase(rd);
+  */
+
+  /*
+  node.pepLength = 3;
+  node.totalScore = 10;
+  node.massTolerance = 10;
+
+  long long result = calculateAdjustedScore(node, 10, 35, 0.5);
+  printf("%lld\n", result);
+  */
+
+  /*
+
+  int result;
+
+  SpectrumBin spectrumBin = createSpectrumBins(10);
+  RejectedDatabase rd = createRejectedDatabase(12);
+  SpectrumHash spectrumHash = newSpectrumTable(10);
+
+  addSpectrumNode(400000, 20, 0, &spectrumHash, 4);
+  addSpectrumNode(410000, 20, 1, &spectrumHash, 4);
+  addSpectrumNode(420000, 20, 2, &spectrumHash, 4);
+
+  node1.mass = 401000;
+  node1.pepLength = 1;
+  strcat(node1.peptideString, "1");
+  node1.singleCharge = 1;
+  node1.doubleCharge = 0;
+
+  node2.mass = 400001;
+  node2.pepLength = 1;
+  strcat(node2.peptideString, "2");
+  node2.singleCharge = 1;
+  node2.doubleCharge = 0;
+  node3.mass = 400002;
+  node3.pepLength = 1;
+  strcat(node3.peptideString, "3");
+  node3.singleCharge = 1;
+  node3.doubleCharge = 0;
+  node4.mass = 400003;
+  node4.pepLength = 1;
+  strcat(node4.peptideString, "4");
+  node4.singleCharge = 1;
+  node4.doubleCharge = 0;
+  node5.mass = 400004;
+  node5.pepLength = 1;
+  strcat(node5.peptideString, "5");
+  node5.adjustedScore = -1;
+  node5.singleCharge = 1;
+  node5.doubleCharge = 0;
+
+  node6.mass = 410001;
+  node6.pepLength = 1;
+  strcat(node6.peptideString, "6");
+  node6.singleCharge = 1;
+  node6.doubleCharge = 0;
+  node7.mass = 420001;
+  node7.pepLength = 1;
+  strcat(node7.peptideString, "7");
+  node7.singleCharge = 1;
+  node7.doubleCharge = 0;
+
+  */
+
+  /*
+  result = trySpectrumBin(spectrumBin,
+                          &rd,
+                          spectrumHash,
+                          node1,
+                          1.0,
+                          50.0,
+                          10,
+                          35,
+                          0.5,
+                          1,
+                          3,
+                          4);
+
+  printf("result node1: %d\n", result);
+
+
+  result = trySpectrumBin(spectrumBin,
+                          &rd,
+                          spectrumHash,
+                          node2,
+                          1.0,
+                          50.0,
+                          10,
+                          35,
+                          0.5,
+                          1,
+                          3,
+                          4);
+
+  printf("result node1: %d\n", result);
+
+  result = trySpectrumBin(spectrumBin,
+                          &rd,
+                          spectrumHash,
+                          node3,
+                          1.0,
+                          50.0,
+                          10,
+                          35,
+                          0.5,
+                          1,
+                          3,
+                          4);
+
+  printf("result node1: %d\n", result);
+
+  result = trySpectrumBin(spectrumBin,
+                          &rd,
+                          spectrumHash,
+                          node4,
+                          1.0,
+                          50.0,
+                          10,
+                          35,
+                          0.5,
+                          1,
+                          3,
+                          4);
+
+  printf("result node1: %d\n", result);
+
+  result = trySpectrumBin(spectrumBin,
+                          &rd,
+                          spectrumHash,
+                          node5,
+                          1.0,
+                          50.0,
+                          10,
+                          35,
+                          0.5,
+                          1,
+                          3,
+                          4);
+
+  printf("result node1: %d\n", result);
+
+  result = trySpectrumBin(spectrumBin,
+                          &rd,
+                          spectrumHash,
+                          node6,
+                          1.0,
+                          50.0,
+                          10,
+                          35,
+                          0.5,
+                          1,
+                          3,
+                          4);
+
+  printf("result node1: %d\n", result);
+
+  result = trySpectrumBin(spectrumBin,
+                          &rd,
+                          spectrumHash,
+                          node7,
+                          1.0,
+                          50.0,
+                          10,
+                          35,
+                          0.5,
+                          1,
+                          3,
+                          4);
+
+  printf("result node1: %d\n", result);
+
+  printf("spec bin 0:\n");
+  printList(spectrumBin.bin[0].next);
+  printf("\n");
+  printf("spec bin 1:\n");
+  printList(spectrumBin.bin[1].next);
+  printf("\n");
+  printf("spec bin 2:\n");
+  printList(spectrumBin.bin[2].next);
+  printf("\n");
+  printf("rejected database:\n");
+  printRejectedDatabase(rd);
+  */
+
+  /*
+  ViablePeptides viablePeptides = createViablePeptides(60,
+                                                       10,
+                                                       10,
+                                                       3,
+                                                       4);
+  */
+  /*
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node1,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node2,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node3,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node4,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node5,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node6,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node7,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  printViablePeptides(viablePeptides, 1);
+  printRejectedDatabase(rd);
+  */
+
+  /*
+  node1.singleCharge = 0;
+  node1.doubleCharge = 1;
+  node2.singleCharge = 0;
+  node2.doubleCharge = 1;
+  node3.singleCharge = 0;
+  node3.doubleCharge = 1;
+  node4.singleCharge = 0;
+  node4.doubleCharge = 1;
+  node5.singleCharge = 0;
+  node5.doubleCharge = 1;
+  node6.singleCharge = 0;
+  node6.doubleCharge = 1;
+  node7.singleCharge = 0;
+  node7.doubleCharge = 1;
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node1,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node2,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node3,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node4,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node5,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node6,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node7,
+                   0.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+
+  printViablePeptides(viablePeptides, 1);
+  printRejectedDatabase(rd);
+  */
+
+  /*
+  node1.mass = 200000;
+
+  addToSpectrumBin(&viablePeptides,
+                   &rd,
+                   spectrumHash,
+                   spectrumHash,
+                   node1,
+                   1.0,
+                   4,
+                   50.0,
+                   10,
+                   35,
+                   0.5,
+                   600000,
+                   0,
+                   1.0072,
+                   300000);
+
+  printViablePeptides(viablePeptides, 1);
+  */
+
+  /*
+  AminoScores aminoScores = createAminoScores(20, 3);
+
+  aminoScores = addAminoScore(aminoScores,
+                              'G',
+                              0,
+                              1);
+  aminoScores = addAminoScore(aminoScores,
+                              'G',
+                              1,
+                              2);
+  aminoScores = addAminoScore(aminoScores,
+                              'G',
+                              2,
+                              3);
+
+  aminoScores = addAminoScore(aminoScores,
+                              'A',
+                              0,
+                              4);
+  aminoScores = addAminoScore(aminoScores,
+                              'A',
+                              1,
+                              5);
+  aminoScores = addAminoScore(aminoScores,
+                              'A',
+                              2,
+                              6);
+
+  aminoScores = addAminoScore(aminoScores,
+                              'S',
+                              0,
+                              7);
+  aminoScores = addAminoScore(aminoScores,
+                              'S',
+                              1,
+                              8);
+  aminoScores = addAminoScore(aminoScores,
+                              'S',
+                              2,
+                              9);
+
+
+  node1.massScore = 3;
+  strcat(node1.peptideString, "GAS");
+  node1.pepLength = 3;
+  node1 = rescoreNode(node1,
+                      aminoScores,
+                      10,
+                      35,
+                      0.5);
+
+  printf("%lld\n", node1.totalScore);
+  */
+
+  /*
+  ViablePeptides viablePeptides = createViablePeptides(10000, 10, 10, 5, 1);
+
+  node1.pepLength = 3;
+  node1.mass = 1;
+  node1.adjustedScore = -1;
+  strcat(node1.peptideString, "1");
+
+  node2.pepLength = 3;
+  node2.mass = 2;
+  strcat(node2.peptideString, "2");
+
+  node3.pepLength = 3;
+  node3.mass = 3;
+  strcat(node3.peptideString, "3");
+
+  node4.pepLength = 3;
+  node4.mass = 4;
+  strcat(node4.peptideString, "4");
+
+  node5.pepLength = 3;
+  node5.mass = 5;
+  strcat(node5.peptideString, "5");
+
+  node6.pepLength = 3;
+  node6.mass = 6;
+  strcat(node6.peptideString, "6");
+
+  node7.pepLength = 3;
+  node7.mass = 7;
+  strcat(node7.peptideString, "7");
+
+  RejectedDatabase rd = createRejectedDatabase(9);
+  RejectedDatabase rd2 = createRejectedDatabase(9);
+  addToRejectedDatabase(&rd, node1, 0, 0);
+  addToRejectedDatabase(&rd, node2, 0, 0);
+  addToRejectedDatabase(&rd, node3, 0, 0);
+  addToRejectedDatabase(&rd, node4, 0, 0);
+  addToRejectedDatabase(&rd, node5, 1, 0);
+  addToRejectedDatabase(&rd, node6, 0, 1);
+  addToRejectedDatabase(&rd, node7, 1, 1);
+
+  RejectedLinkedList *referenceList = rd.array[2];
+  rd.array[2] = NULL;
+  
+  addNodesToViablePeptides(&viablePeptides, &rd2, referenceList);
+
+
+  printf("**********viable peptides**********\n");
+  printViablePeptides(viablePeptides, 1);
+  printf("\n**********rejected database 2**********\n");
+  printRejectedDatabase(rd2);
+  printf("\n**********rejected database**********\n");
+  printRejectedDatabase(rd);
+  */
+  
+
+  /*
+  AminoScores aminoScores = createAminoScores(4, 3);
+  AminoMasses aminoMasses = createAminoMasses(4);
+  AminoAcids aminoAcids = createAminoAcids(4);
+
+  aminoAcids.array[0] = 'G';
+  aminoAcids.array[1] = 'A';
+  aminoAcids.array[2] = 'S';
+  aminoAcids.array[3] = 'P';
+
+  aminoMasses = addAminoMass(aminoMasses, 'G', 1);
+  aminoMasses = addAminoMass(aminoMasses, 'A', 2);
+  aminoMasses = addAminoMass(aminoMasses, 'S', 3);
+  aminoMasses = addAminoMass(aminoMasses, 'P', 4);
+
+  aminoScores = addAminoScore(aminoScores, 'G', 0, 10);
+  aminoScores = addAminoScore(aminoScores, 'G', 1, 11);
+  aminoScores = addAminoScore(aminoScores, 'G', 2, 12);
+
+  aminoScores = addAminoScore(aminoScores, 'A', 0, 20);
+  aminoScores = addAminoScore(aminoScores, 'A', 1, 21);
+  aminoScores = addAminoScore(aminoScores, 'A', 2, 22);
+
+  aminoScores = addAminoScore(aminoScores, 'S', 0, 30);
+  aminoScores = addAminoScore(aminoScores, 'S', 1, 31);
+  aminoScores = addAminoScore(aminoScores, 'S', 2, 32);
+
+  aminoScores = addAminoScore(aminoScores, 'P', 0, 40);
+  aminoScores = addAminoScore(aminoScores, 'P', 1, 41);
+  aminoScores = addAminoScore(aminoScores, 'P', 2, 42);
+
+  Node* nodeList;
+
+  nodeList = branchPeptide(node1, aminoScores, aminoMasses, aminoAcids);
+
+  
+  for (int i = 0; i < aminoAcids.size; i++) {
+    printNode(nodeList[i]);
+  }
+  
+
+  Node branchNode = nodeList[0];
+
+  nodeList = branchPeptide(branchNode, aminoScores, aminoMasses, aminoAcids);
+
+  
+  for (int i = 0; i < aminoAcids.size; i++) {
+    printNode(nodeList[i]);
+  }
+  
+
+  branchNode = nodeList[0];
+  branchNode.miscleavageSwap = 1;
+
+  nodeList = branchPeptide(branchNode, aminoScores, aminoMasses, aminoAcids);
+
+  for (int i = 0; i < aminoAcids.size; i++) {
+    printNode(nodeList[i]);
+  }
+  */
+
+  /*
+  ViablePeptides viablePeptides =
+      createViablePeptides(10000, 10, 10, 5, 1);
+  */
+
+  /*
+  long miscleavageBin = (viablePeptides.miscleavageBins.size - 1) * pow(10, 1);
+
+  printf("%ld\n", miscleavageBin);
+  printf("%d\n", viablePeptides.spectrumBins.size);
+  printf("%d\n", viablePeptides.spectrumBins.size);
+  */
+
+  /*
+  AminoAcids aminoAcids = createAminoAcids(20);
+  aminoAcids.array[0] = 'G';
+  aminoAcids.array[1] = 'A';
+  aminoAcids.array[2] = 'S';
+  aminoAcids.array[3] = 'P';
+  aminoAcids.array[4] = 'V';
+  aminoAcids.array[5] = 'T';
+  aminoAcids.array[6] = 'L';
+  aminoAcids.array[7] = 'I';
+  aminoAcids.array[8] = 'N';
+  aminoAcids.array[9] = 'D';
+  aminoAcids.array[10] = 'Q';
+  aminoAcids.array[11] = 'K';
+  aminoAcids.array[12] = 'E';
+  aminoAcids.array[13] = 'M';
+  aminoAcids.array[14] = 'H';
+  aminoAcids.array[15] = 'F';
+  aminoAcids.array[16] = 'R';
+  aminoAcids.array[17] = 'C';
+  aminoAcids.array[18] = 'Y';
+  aminoAcids.array[19] = 'W';
+
+  AminoMasses aminoMasses = createAminoMasses(20);
+  aminoMasses = addAminoMass(aminoMasses, 'G', 570214);
+  aminoMasses = addAminoMass(aminoMasses, 'A', 710371);
+  aminoMasses = addAminoMass(aminoMasses, 'S', 870320);
+  aminoMasses = addAminoMass(aminoMasses, 'P', 970527);
+  aminoMasses = addAminoMass(aminoMasses, 'V', 990684);
+  aminoMasses = addAminoMass(aminoMasses, 'T', 1010476);
+  aminoMasses = addAminoMass(aminoMasses, 'L', 1130840);
+  aminoMasses = addAminoMass(aminoMasses, 'I', 1130840);
+  aminoMasses = addAminoMass(aminoMasses, 'N', 1140429);
+  aminoMasses = addAminoMass(aminoMasses, 'D', 1150269);
+  aminoMasses = addAminoMass(aminoMasses, 'Q', 1280585);
+  aminoMasses = addAminoMass(aminoMasses, 'K', 1280949);
+  aminoMasses = addAminoMass(aminoMasses, 'E', 1290426);
+  aminoMasses = addAminoMass(aminoMasses, 'M', 1310404);
+  aminoMasses = addAminoMass(aminoMasses, 'H', 1370589);
+  aminoMasses = addAminoMass(aminoMasses, 'F', 1470684);
+  aminoMasses = addAminoMass(aminoMasses, 'R', 1561011);
+  aminoMasses = addAminoMass(aminoMasses, 'C', 1600306);
+  aminoMasses = addAminoMass(aminoMasses, 'Y', 1630633);
+  aminoMasses = addAminoMass(aminoMasses, 'W', 1860793);
+
+  AminoScores aminoScores = createAminoScores(20, 9);
+
+  aminoScores = addAminoScore(aminoScores, 'G', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'G', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'G', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'G', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'G', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'G', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'G', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'G', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'G', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'A', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'A', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'A', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'A', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'A', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'A', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'A', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'A', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'A', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'S', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'S', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'S', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'S', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'S', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'S', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'S', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'S', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'S', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'P', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'P', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'P', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'P', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'P', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'P', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'P', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'P', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'P', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'V', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'V', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'V', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'V', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'V', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'V', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'V', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'V', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'V', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'T', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'T', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'T', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'T', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'T', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'T', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'T', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'T', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'T', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'L', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'L', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'L', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'L', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'L', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'L', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'L', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'L', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'L', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'I', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'I', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'I', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'I', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'I', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'I', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'I', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'I', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'I', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'N', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'N', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'N', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'N', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'N', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'N', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'N', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'N', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'N', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'D', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'D', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'D', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'D', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'D', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'D', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'D', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'D', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'D', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'Q', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'Q', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'Q', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'Q', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'Q', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'Q', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'Q', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'Q', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'Q', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'K', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'K', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'K', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'K', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'K', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'K', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'K', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'K', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'K', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'E', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'E', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'E', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'E', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'E', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'E', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'E', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'E', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'E', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'M', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'M', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'M', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'M', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'M', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'M', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'M', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'M', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'M', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'H', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'H', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'H', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'H', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'H', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'H', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'H', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'H', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'H', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'F', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'F', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'F', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'F', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'F', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'F', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'F', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'F', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'F', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'R', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'R', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'R', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'R', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'R', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'R', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'R', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'R', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'R', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'C', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'C', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'C', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'C', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'C', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'C', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'C', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'C', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'C', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'Y', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'Y', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'Y', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'Y', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'Y', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'Y', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'Y', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'Y', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'Y', 8, 50);
+
+  aminoScores = addAminoScore(aminoScores, 'W', 0, 50);
+  aminoScores = addAminoScore(aminoScores, 'W', 1, 50);
+  aminoScores = addAminoScore(aminoScores, 'W', 2, 50);
+  aminoScores = addAminoScore(aminoScores, 'W', 3, 50);
+  aminoScores = addAminoScore(aminoScores, 'W', 4, 50);
+  aminoScores = addAminoScore(aminoScores, 'W', 5, 50);
+  aminoScores = addAminoScore(aminoScores, 'W', 6, 50);
+  aminoScores = addAminoScore(aminoScores, 'W', 7, 50);
+  aminoScores = addAminoScore(aminoScores, 'W', 8, 50);
+
+  SpectrumHash spectrumHash = newSpectrumTable(14);
+  addSpectrumNode(1102865,
+                  2841,
+                  0,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(1150503,
+                  9468,
+                  1,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(2130609,
+                  1555,
+                  2,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(2460909,
+                  9580,
+                  3,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(2827322,
+                  1417,
+                  4,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(3591751,
+                  9102,
+                  5,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(4263579,
+                  1886,
+                  6,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(4602228,
+                  8720,
+                  7,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(5412488,
+                  2300,
+                  8,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(5472550,
+                  8779,
+                  9,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(6197172,
+                  2871,
+                  10,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(6483027,
+                  9769,
+                  11,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(6759610,
+                  1249,
+                  12,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(7193399,
+                  8204,
+                  13,
+                  &spectrumHash,
+                  4);
+  addSpectrumNode(9464980,
+                  1,
+                  14,
+                  &spectrumHash,
+                  4);
+
+  ViablePeptides viablePeptides = createViablePeptides(9655204,
+                                                       15,
+                                                       0,
+                                                       5,
+                                                       4);
+
+  RejectedDatabase rejectedDatabase = createRejectedDatabase(12);
+
+
+  addLink(&viablePeptides.miscleavageBins.bin[0], node1);
+  */
+
+  /*
+  for (int i=0; i<8; i++) {
+    viablePeptides =
+      getNextGeneration(&viablePeptides,
+                        &rejectedDatabase,
+                        aminoMasses,
+                        aminoScores,
+                        aminoAcids,
+                        spectrumHash,
+                        spectrumHash,
+                        1,
+                        3,
+                        0,
+                        4,
+                        0.0,
+                        35,
+                        10,
+                        35,
+                        0.5,
+                        9655204,
+                        10072,
+                        1102865);
+  }
+
+
+  printViablePeptides(viablePeptides, 0);
+  printf("###########################################################\n");
+  printRejectedDatabase(rejectedDatabase);
+  addAllToRejectedDatabase(&viablePeptides, &rejectedDatabase);
+  printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+  printViablePeptides(viablePeptides, 0);
+  printf("###########################################################\n");
+  printRejectedDatabase(rejectedDatabase);
+  iterateRejectedPeptides(&rejectedDatabase,
+                          &viablePeptides,
+                          aminoMasses,
+                          aminoScores,
+                          aminoAcids,
+                          spectrumHash,
+                          spectrumHash,
+                          1,
+                          3,
+                          1,
+                          4,
+                          0.0,
+                          35.0,
+                          10.0,
+                          35.0,
+                          0.5,
+                          9655204,
+                          10072,
+                          1102865,
+                          8);
+
+  printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+  printViablePeptides(viablePeptides, 0);
+  printf("###########################################################\n");
+  printRejectedDatabase(rejectedDatabase);
+  */
+
+  /*
+  Results results;
+
+  results = findBestPeptides(&viablePeptides,
+                   aminoMasses,
+                   aminoScores,
+                   aminoAcids,
+                   spectrumHash,
+                   spectrumHash,
+                   2,
+                   4,
+                   2,
+                   4,
+                   0.0,
+                   35,
+                   10,
+                   35,
+                   0.5,
+                   9645132,
+                   1102865,
+                   9,
+                   12,
+                   180152,
+                   10072,
+                   0);
+  */
+
+  SpectrumHash specHash;
+  AminoAcids aminoAcids;
+  AminoMasses aminoMasses;
+  AminoScores aminoScores;
+  AminoScores aminoScores2;
+
+  FILE* specFile = fopen("testSpec", "r");
+  FILE* acidFile = fopen("testAcids", "r");
+  FILE* massFile = fopen("testMasses", "r");
+  FILE* scoreFile = fopen("testScores", "r");
+
+  specHash = fileToSpectrumHash(specFile, 4);
+  aminoAcids = fileToAminoAcids(acidFile);
+  aminoMasses = fileToAminoMasses(massFile, aminoAcids);
+  aminoScores = fileToAminoScores(scoreFile, aminoAcids, 4);
+  aminoScores2 = fileToAminoScores(scoreFile, aminoAcids, 4);
+
+  printSpectrumTable(&specHash);
+  for (int i = 0; i < aminoAcids.size; i++) {
+    printf("%c  ", aminoAcids.array[i]);
+  }
+  printf("\n");
+  for (int i = 0; i < aminoMasses.size; i++) {
+    printf("%ld  ", getAminoMass(aminoMasses, aminoAcids.array[i]));
+  }
+  printf("\n");
+  printf("\n");
+
+  for (int i = 0; i < aminoAcids.size; i ++) {
+    for (int k = 0; k < 4; k++) {
+      printf("%ld  ", getAminoScore(aminoScores,
+                                    aminoAcids.array[i],
+                                    k));
+    }
+    printf("\n");
+  }
+
+  for (int i = 0; i < aminoAcids.size; i ++) {
+    for (int k = 0; k < 4; k++) {
+      printf("%ld  ", getAminoScore(aminoScores2,
+                                    aminoAcids.array[i],
+                                    k));
+    }
+    printf("\n");
+  }
+                   
+
+  return 0;
+}
