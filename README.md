@@ -11,3 +11,9 @@ The "backend" folder contains all pre-processing and post-processing functions, 
 The "scoring" folder contains the code for the main algorithm, written in C. It was translated from the original Python code in pretty short order, and it honestly has a lot of room for improvement.
 
 Finally, the "analysis" folder contains a set of tools for analyzing the output of the program and evaluating its efficacy.
+
+
+## Very Basics of Mass Spectrometry
+
+The goal of this program is to discover new peptides. In this case, a peptide is a short protien, made up of a linear chain of amino acids. We are generally dealing with 20 amino acids. Each can be represented by a single letter and a mass:
+
